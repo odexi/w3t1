@@ -9,6 +9,8 @@ import { MediaService } from './services/media.service';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { UploadComponent } from './upload/upload.component';
+import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
 
 const routeConfig = [
   {
@@ -28,7 +30,15 @@ const routeConfig = [
   {
     path: 'front',
     component: FrontComponent
-  }
+  },
+   {
+    path: 'upload',
+    component: UploadComponent
+  },
+   {
+    path: 'mediaplayer/:fileId',
+    component: MediaplayerComponent
+   }
 ];
 
 @NgModule({
@@ -37,7 +47,9 @@ const routeConfig = [
     FrontComponent,
     TopBarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UploadComponent,
+    MediaplayerComponent
   ],
   imports: [
     BrowserModule,
