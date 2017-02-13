@@ -75,4 +75,8 @@ export class MediaService {
         }
       );
   }
+  getNew = () => {
+    return this.http.get(this.url + '/media?limit=10');
+
+  }
 }

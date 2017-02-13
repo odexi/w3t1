@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { UploadComponent } from './upload/upload.component';
 import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
 
+import { ThumbnailPipe } from './pipes/thumbnail.pipe';
+
 const routeConfig = [
   {
     path: '',
@@ -49,7 +51,8 @@ const routeConfig = [
     RegisterComponent,
     LoginComponent,
     UploadComponent,
-    MediaplayerComponent
+    MediaplayerComponent,
+    ThumbnailPipe
   ],
   imports: [
     BrowserModule,
