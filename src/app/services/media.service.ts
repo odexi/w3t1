@@ -76,7 +76,15 @@ export class MediaService {
       );
   }
   getNew = () => {
-    return this.http.get(this.url + '/media?limit=10');
+    return this.http.get(this.url + '/media?limit=100');
 
+  }
+
+  getMedia = (fileId) => {
+    return this.http.get(this.url + '/media/' + fileId)
+    .map(
+      res =>
+       res.json()
+    );
   }
 }

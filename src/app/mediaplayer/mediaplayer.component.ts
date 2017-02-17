@@ -1,3 +1,4 @@
+import { MediaService } from './../services/media.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,15 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MediaplayerComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  private media: any = [];
+  private id;
+  
 
-  media = () => {
-    this.route.params.subscribe((params: any) => {
-        console.log(params);
-    });
-  }
+  constructor(private route: ActivatedRoute, private mediaService: MediaService) { }
+
 
   ngOnInit() {
+    this.route.params.subscribe((params: any) => {
+      this.id = params.id;
+      this.viewMedia(this.id);
+    });
+  }
+  
+  viewMedia = (fileId) => {
+    this.mediaService.getMedia(fileId).subscribe(
+      (res) => {
+        this.media = res;
+        console.log(this.media.user_id);
+      }
+    );
   }
 
 }

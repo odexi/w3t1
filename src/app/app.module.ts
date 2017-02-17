@@ -38,7 +38,7 @@ const routeConfig = [
     component: UploadComponent
   },
    {
-    path: 'mediaplayer/:fileId',
+    path: 'mediaPlayer/:id',
     component: MediaplayerComponent
    }
 ];

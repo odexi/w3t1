@@ -1,3 +1,12 @@
-<p>
-  mediaplayer works!
-</p>
+<div>
+    <img *ngIf="media.media_type === 'image'" [alt]="media.title" [routerLink]="['/mediaPlayer', media.file_id]" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (media.filename)">
+
+
+
+    <audio controls *ngIf="media.media_type === 'audio'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (media.filename)"></audio>
+
+
+
+    <video width="320" height="240" controls *ngIf="media.media_type === 'video'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (media.filename)"></video>
+    
+</div>

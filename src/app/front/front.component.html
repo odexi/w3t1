@@ -1,15 +1,14 @@
+  <h3>Front</h3>
 
-<table>
-  <thead>
- 
-  </thead>
-  <tbody>
-  <tr *ngFor="let id of images">
-    <td><img src="{{ 'http://media.mw.metropolia.fi/wbma/uploads/' + (id.filename | thumbnail: 'small')}}"></td>
+  <div *ngFor="let file of images">
+    <img *ngIf="file.media_type === 'image'" [alt]="file.title" [routerLink]="['/mediaPlayer', file.file_id]" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + (file.filename | thumbnail: 'small')">
     
-    <td>{{id.title}}</td>
-    <td>{{id.description}}<br/>
-    </td>
-  </tr>
-  </tbody>
-</table>
+    <p *ngIf="file.media_type === 'audio'">
+      <a [routerLink]="['/mediaPlayer', file.file_id]">{{file.filename}}</a>
+    </p>
+
+    <p *ngIf="file.media_type === 'video'">
+      <a [routerLink]="['/mediaPlayer', file.file_id]">{{file.filename}}</a>
+    </p>
+  </div>
+ 
